@@ -12,7 +12,7 @@ function promptfunc(){
         alert("number should be less than 100");
         promptfunc();
     }
-    let num = (800 - 4 * number) / number;
+    let num = (768 - 4 * number) / number;
     for (let i = 0; i < number; i++){
         const div = document.createElement('div');
         div.setAttribute("style", "display: flex;");
