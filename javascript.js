@@ -1,5 +1,6 @@
 let number;
 const container = document.querySelector(".container");
+console.log(container);
 function rgb0(){
     let rgb1 = Math.floor(Math.random() * 256);
     let rgb2 = Math.floor(Math.random() * 256);
@@ -12,7 +13,6 @@ function promptfunc(){
         alert("number should be less than 100");
         promptfunc();
     }
-    let num = (768 - 4 * number) / number;
     for (let i = 0; i < number; i++){
         const div = document.createElement('div');
         div.setAttribute("style", "display: flex;");
@@ -20,21 +20,21 @@ function promptfunc(){
         for (let j = 0; j < number; j++){
             const div1 = document.createElement('div');
             div1.setAttribute("class", "square");
-            div1.setAttribute("style", `height: ${num}px; width: ${num}px;`)
+            div1.setAttribute("style", `height: ${40/number}vw; width: ${40/number}vw;`)
             div.appendChild(div1);
         }
     }
-        const div2 = document.querySelectorAll(".square");
-        div2.forEach(element => {
-            let i = 0;
-            let rgbc = rgb0();
-            let a = rgbc[0];
-            let b = rgbc[1];
-            let c = rgbc[2];
-            element.addEventListener("mouseenter" , () => {
-                element.style["background-color"] = 'rgb(' + (a - ((a/10)*i)) + ',' + (b - ((b/10)*i)) + ',' + (c - ((c/10)*i)) + ')';
-                i++;
-            });
+    const div2 = document.querySelectorAll(".square");
+    div2.forEach(element => {
+        let i = 0;
+        let rgbc = rgb0();
+        let a = rgbc[0];
+        let b = rgbc[1];
+        let c = rgbc[2];
+        element.addEventListener("mouseenter" , () => {
+            element.style["background-color"] = 'rgb(' + (a - ((a/10)*i)) + ',' + (b - ((b/10)*i)) + ',' + (c - ((c/10)*i)) + ')';
+            i++;
+        });
     });
 }
 promptfunc();
