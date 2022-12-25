@@ -31,9 +31,19 @@ function promptfunc(){
         let a = rgbc[0];
         let b = rgbc[1];
         let c = rgbc[2];
-        element.addEventListener("mouseenter" , () => {
+        var isMouseDown = false;
+
+        container.addEventListener("mousedown", function(event) {
+            isMouseDown = true;
+        });
+        container.addEventListener("mouseup", function(event) {
+            isMouseDown = false;
+        });
+        element.addEventListener("mousemove", function(event) {
+        if (isMouseDown) {
             element.style["background-color"] = 'rgb(' + (a - ((a/10)*i)) + ',' + (b - ((b/10)*i)) + ',' + (c - ((c/10)*i)) + ')';
             i++;
+        }
         });
     });
 }
